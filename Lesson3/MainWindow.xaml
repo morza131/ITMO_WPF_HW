@@ -13,6 +13,18 @@
         </Grid.RowDefinitions>
         <ToolBarTray Grid.Row="0">
             <ToolBar Margin=" 5" Padding="5">
+                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width=" 200">
+                    <TextBlock Text="Arial"/>
+                    <TextBlock Text="Times New Roman"/>
+                    <TextBlock Text="Verdana"/>
+                    <TextBlock Text="ISOCPEUR"/>
+                </ComboBox>
+                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="50">
+                    <TextBlock Text="12"/>
+                    <TextBlock Text="14"/>
+                    <TextBlock Text="16"/>
+                    <TextBlock Text="18"/>                    
+                </ComboBox>         
                 
             </ToolBar>
         </ToolBarTray>
