@@ -11,7 +11,7 @@
             <RowDefinition Height="0.3*" MinHeight="50"/>
             <RowDefinition MinHeight="200"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="1234.658" Grid.Row="0" Background="#FFCFF582" FontSize="48" TextAlignment="Right" FontWeight="Light" VerticalAlignment="Bottom"/>
+        <TextBlock Text="1234.658" Grid.Row="0" Background="#FFCFF582" FontSize="48" TextAlignment="Right" FontWeight="Light" VerticalAlignment="Bottom" Margin="0,0,5,5"/>
         <UniformGrid Rows="6" Columns="4" Grid.Row="1">
             <Button Content="%" Background="#FFD45B5B"/>
             <Button Content="CE" Background="#FFD45B5B"/>
