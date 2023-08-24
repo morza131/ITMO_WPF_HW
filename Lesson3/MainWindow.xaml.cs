@@ -24,5 +24,14 @@ namespace Lesson3
         {
             InitializeComponent();
         }
+
+        private void FontBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            string font = ((sender as ComboBox).SelectedItem as TextBox).Text;
+            if (font != null)
+            textBox.FontFamily = new FontFamily(font);
+            
+        }
     }
 }
