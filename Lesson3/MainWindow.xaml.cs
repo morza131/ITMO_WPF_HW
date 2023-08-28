@@ -28,10 +28,110 @@ namespace Lesson3
         private void FontBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
-            string font = ((sender as ComboBox).SelectedItem as TextBox).Text;
-            if (font != null)
-            textBox.FontFamily = new FontFamily(font);
+            string font = ((sender as ComboBox).SelectedItem as TextBlock).Text;
+            if (textBox != null)
+            {
+                textBox.FontFamily = new FontFamily(font);
+            }
+        }
+
+        private void FontSizeBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            double fontSize = Convert.ToDouble(((sender as ComboBox).SelectedItem as TextBlock).Text);
+            if (textBox != null)
+            {
+                textBox.FontSize = fontSize;
+            }
+        }
+        private bool isBoilButtonClicked = false;
+        private bool isItalicButtonClicked = false;
+        private bool isUnderlineButtonClicked = false;
+
+        private void BoilButton_Click(object sender, RoutedEventArgs e)
+        {
             
+            if (isBoilButtonClicked)
+            {
+                isBoilButtonClicked = false;
+                BoilButton.Background = Brushes.AliceBlue;
+                if (textBox != null)
+                {
+                    textBox.FontWeight = FontWeights.Normal;
+                }
+            }
+            else
+            {
+                isBoilButtonClicked = true;
+                BoilButton.Background = Brushes.Beige;
+                if (textBox != null)
+                {
+                    textBox.FontWeight = FontWeights.Bold;
+                }
+
+            }
+
+        }
+
+        private void ItalicButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            if (isItalicButtonClicked)
+            {
+                isItalicButtonClicked = false;
+                ItalicButton.Background = Brushes.AliceBlue;
+                if (textBox != null)
+                {
+                    textBox.FontStyle = FontStyles.Normal;
+                }
+            }
+            else
+            {
+                isItalicButtonClicked = true;
+                ItalicButton.Background = Brushes.Beige;
+                if (textBox != null)
+                {
+                    textBox.FontStyle = FontStyles.Italic;
+                }
+            }
+        }
+
+        private void UnderlineButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            if (isUnderlineButtonClicked)
+            {
+                isUnderlineButtonClicked = false;
+                UnderlineButton.Background = Brushes.AliceBlue;
+                if (textBox != null)
+                {
+                    textBox.TextDecorations = null;
+                }
+            }
+            else
+            {
+                isUnderlineButtonClicked = true;
+                UnderlineButton.Background = Brushes.Beige;
+                if (textBox != null)
+                {
+                    textBox.TextDecorations = TextDecorations.Underline;
+                }
+            }
+        }
+
+        private void RedButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if (textBox != null)
+            {
+                textBox.Foreground= Brushes.Red;
+            }
+        }
+
+        private void BlackButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if (textBox != null)
+            {
+                textBox.Foreground = Brushes.Black;
+            }
         }
     }
 }
