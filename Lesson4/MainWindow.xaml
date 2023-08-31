@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lesson4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="800"  MinHeight="500" MinWidth="700">
     <Grid>
         <TabControl>
             <TabItem Header="Валюты" Width="Auto">
@@ -24,7 +24,7 @@
                             </Grid.RowDefinitions>
                             <Label Content ="Введите курс доллара" VerticalAlignment="Center"/>
                             <TextBox x:Name="dollarExRate" Grid.Row="0" Grid.Column="1" BorderBrush="LightGray" BorderThickness="2" Margin="5" Padding="5"/>
-                            <Label Content="Введите сумму" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                            <Label Content="Введите сумму в долларах" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
                             <TextBox x:Name="dollarValue" Grid.Row="1" Grid.Column="1" BorderBrush="LightGray" BorderThickness="2" Margin="5" Padding="5"/>
                             <Button x:Name="dollarCalculate" Content="Рассчитать" Grid.Row="2" Grid.ColumnSpan="2" Margin="5" Padding="5" VerticalAlignment="Center" Click="dollarCalculate_Click" />
                             <Label Content="Результат" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
@@ -45,7 +45,7 @@
                             </Grid.RowDefinitions>
                             <Label Content ="Введите курс евро" VerticalAlignment="Center"/>
                             <TextBox x:Name="euroExRate" Grid.Row="0" Grid.Column="1" BorderBrush="LightGray" BorderThickness="2" Margin="5" Padding="5"/>
-                            <Label Content="Введите сумму" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                            <Label Content="Введите сумму евро" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
                             <TextBox x:Name="euroValue" Grid.Row="1" Grid.Column="1" BorderBrush="LightGray" BorderThickness="2" Margin="5" Padding="5"/>
                             <Button x:Name="euroCalculate" Content="Рассчитать" Grid.Row="2" Grid.ColumnSpan="2" Margin="5" Padding="5" VerticalAlignment="Center" Click="euroCalculate_Click" />
                             <Label Content="Результат" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
@@ -66,7 +66,7 @@
                             </Grid.RowDefinitions>
                             <Label Content ="Введите курс гривны" VerticalAlignment="Center"/>
                             <TextBox x:Name="hryvniaExRate" Grid.Row="0" Grid.Column="1" BorderBrush="LightGray" BorderThickness="2" Margin="5" Padding="5"/>
-                            <Label Content="Введите сумму" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                            <Label Content="Введите сумму гривень" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
                             <TextBox x:Name="hryvniaValue" Grid.Row="1" Grid.Column="1" BorderBrush="LightGray" BorderThickness="2" Margin="5" Padding="5"/>
                             <Button x:Name="hryvniaCalculate" Content="Рассчитать" Grid.Row="2" Grid.ColumnSpan="2" Margin="5" Padding="5" VerticalAlignment="Center" Click="hryvniaCalculate_Click" />
                             <Label Content="Результат" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
@@ -87,7 +87,7 @@
                             </Grid.RowDefinitions>
                             <Label Content ="Введите курс армянских драм" VerticalAlignment="Center"/>
                             <TextBox x:Name="dramaExRate" Grid.Row="0" Grid.Column="1" BorderBrush="LightGray" BorderThickness="2" Margin="5" Padding="5"/>
-                            <Label Content="Введите сумму" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                            <Label Content="Введите сумму драм" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
                             <TextBox x:Name="dramaValue" Grid.Row="1" Grid.Column="1" BorderBrush="LightGray" BorderThickness="2" Margin="5" Padding="5"/>
                             <Button x:Name="dramaCalculate" Content="Рассчитать" Grid.Row="2" Grid.ColumnSpan="2" Margin="5" Padding="5" VerticalAlignment="Center" Click="dramaCalculate_Click" />
                             <Label Content="Результат" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
@@ -97,7 +97,7 @@
                 </UniformGrid>
             </TabItem>
             <TabItem Header="Расстояния">
-                <GroupBox Header="Введите любую из величин" Margin="10" Padding="5" BorderThickness="2" BorderBrush="Green">
+                <GroupBox Header="Введите любую из величин и нажмите клавишу Enter" Margin="10" Padding="5" BorderThickness="2" BorderBrush="Green">
                     <UniformGrid Rows="4" Columns="1" Width="Auto">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -108,7 +108,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Label Content="Метры"/>
-                            <TextBox x:Name="meters" Grid.Row="1" VerticalAlignment="Center" Margin="5" Padding="5" Width="200" TextChanged="meters_TextChanged"/>
+                            <TextBox x:Name="meters" Grid.Row="1" VerticalAlignment="Center" Margin="5" Padding="5" Width="200" KeyDown="meters_KeyDown"/>
                         </Grid>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -119,7 +119,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Label Content="Футы" Grid.Row="0"/>
-                            <TextBox x:Name="foots" Grid.Row="1" VerticalAlignment="Center" Margin="5" Padding="5" Width="200"/>
+                            <TextBox x:Name="foots" Grid.Row="1" VerticalAlignment="Center" Margin="5" Padding="5" Width="200" KeyDown="foots_KeyDown"/>
                         </Grid>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -130,7 +130,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Label Content="Аршины" Grid.Row="0"/>
-                            <TextBox x:Name="arshins" Grid.Row="1" VerticalAlignment="Center" Margin="5" Padding="5" Width="200"/>
+                            <TextBox x:Name="arshins" Grid.Row="1" VerticalAlignment="Center" Margin="5" Padding="5" Width="200" KeyDown="arshins_KeyDown"/>
                         </Grid>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -141,7 +141,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Label Content="Мили" Grid.Row="0"/>
-                            <TextBox x:Name="miles" Grid.Row="1" VerticalAlignment="Center" Margin="5" Padding="5" Width="200"/>
+                            <TextBox x:Name="miles" Grid.Row="1" VerticalAlignment="Center" Margin="5" Padding="5" Width="200" KeyDown="miles_KeyDown"/>
                         </Grid>
                     </UniformGrid>
                 </GroupBox>
