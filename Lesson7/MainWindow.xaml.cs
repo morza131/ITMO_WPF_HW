@@ -27,15 +27,15 @@ namespace Lesson7
             InitializeComponent();
         }
         #region event handlers
-        //private void FontBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
+        private void FontBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
-        //    string font = ((sender as ComboBox).SelectedItem as TextBlock).Text;
-        //    if (textBox != null)
-        //    {
-        //        textBox.FontFamily = new FontFamily(font);
-        //    }
-        //}
+            string font = ((sender as ComboBox).SelectedItem as TextBlock).Text;
+            if (textBox != null)
+            {
+                textBox.FontFamily = new FontFamily(font);
+            }
+        }
 
         private void FontSizeBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -134,32 +134,7 @@ namespace Lesson7
             {
                 textBox.Foreground = Brushes.Black;
             }
-        }
-
-        //private void menuOpen_Click(object sender, RoutedEventArgs e)
-        //{
-        //    OpenFileDialog openFileDialog = new OpenFileDialog();
-        //    openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
-        //    if (openFileDialog.ShowDialog() == true)
-        //    {
-        //        textBox.Text = File.ReadAllText(openFileDialog.FileName);
-        //    }
-        //}
-
-        //private void menuSave_Click(object sender, RoutedEventArgs e)
-        //{
-        //    SaveFileDialog saveFileDialog = new SaveFileDialog();
-        //    saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
-        //    if (saveFileDialog.ShowDialog() == true)
-        //    {
-        //        File.WriteAllText(saveFileDialog.FileName, textBox.Text);
-        //    }
-        //}
-
-        //private void menuExit_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Application.Current.Shutdown();
-        //}
+        }        
         #endregion
 
         #region Commands
@@ -171,6 +146,7 @@ namespace Lesson7
             {
                 textBox.Text = File.ReadAllText(openFileDialog.FileName);
             }
+           
         }
 
         private void SaveExecuted(object sender, ExecutedRoutedEventArgs e)
@@ -187,9 +163,19 @@ namespace Lesson7
         {
             Application.Current.Shutdown();
         }
+        //private void FontBox_SelectionChangedExecuted(object sender, ExecutedRoutedEventArgs e)
+        //{
 
+        //    string font = ((sender as ComboBox).SelectedItem as TextBlock).Text;
+        //    if (textBox != null)
+        //    {
+        //        textBox.FontFamily = new FontFamily(font);
+        //    }
+        //}
 
 
         #endregion
+
+
     }
 }
