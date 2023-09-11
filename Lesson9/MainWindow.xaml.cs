@@ -120,7 +120,11 @@ namespace Lesson9
                 }
             }
         }
-
+        private ResourceDictionary GetResourceDictionary(string _uri, UriKind uriKind) 
+        {
+            Uri uri = new Uri(_uri, uriKind);
+            return Application.LoadComponent(uri) as ResourceDictionary;
+        }
         private void RedButton_Checked(object sender, RoutedEventArgs e)
         {
             if (textBox != null)
@@ -132,9 +136,10 @@ namespace Lesson9
         private void BlackButton_Checked(object sender, RoutedEventArgs e)
         {
             if (textBox != null)
-            {
+            { 
                 textBox.Foreground = Brushes.Black;
             }
+            
         }
         #endregion
 
@@ -178,25 +183,22 @@ namespace Lesson9
         #endregion
 
         private void lightModeButton_Checked(object sender, RoutedEventArgs e)
-        {
-            Uri uriStyle = new Uri("LightMode.xaml", UriKind.Relative);
-            Uri uriFonts = new Uri("DictionaryFonts.xaml", UriKind.Relative);
-            ResourceDictionary resourceStyle = Application.LoadComponent(uriStyle) as ResourceDictionary;
-            ResourceDictionary resourceFonts = Application.LoadComponent(uriFonts) as ResourceDictionary;
+        {                        
+            ResourceDictionary resourceStyle = GetResourceDictionary("LightMode.xaml", UriKind.Relative);
+            ResourceDictionary resourceFonts = GetResourceDictionary("DictionaryFonts.xaml", UriKind.Relative);
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceStyle);
             Application.Current.Resources.MergedDictionaries.Add(resourceFonts);
-        }
-
+        }      
         private void darkModeButton_Checked(object sender, RoutedEventArgs e)
         {
-            Uri uriStyle = new Uri("DarkMode.xaml", UriKind.Relative);
-            Uri uriFonts = new Uri("DictionaryFonts.xaml", UriKind.Relative);
-            ResourceDictionary resourceStyle = Application.LoadComponent(uriStyle) as ResourceDictionary;
-            ResourceDictionary resourceFonts = Application.LoadComponent(uriFonts) as ResourceDictionary;
-            Application.Current.Resources.Clear();
+            
+            ResourceDictionary resourceStyle = GetResourceDictionary("DarkMode.xaml", UriKind.Relative); 
+            ResourceDictionary resourceFonts = GetResourceDictionary("DictionaryFonts.xaml", UriKind.Relative);
+            Application.Current.Resources.Clear();           
             Application.Current.Resources.MergedDictionaries.Add(resourceStyle);
             Application.Current.Resources.MergedDictionaries.Add(resourceFonts);
+
         }
     }
 }

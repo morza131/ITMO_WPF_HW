@@ -15,8 +15,7 @@ namespace Lesson9
         {
             InputGestureCollection inputs = new InputGestureCollection();
             inputs.Add(new KeyGesture(Key.O, ModifierKeys.Control, "Cttl+O"));
-            Exit = new RoutedCommand("Exit", typeof(MyCommands), inputs);
-            FontBox_SelectionChanged = new RoutedCommand("FontBox_SelectionChanged", typeof(MyCommands));
+            Exit = new RoutedCommand("Exit", typeof(MyCommands), inputs);            
         }
     }
 }
