@@ -1,0 +1,30 @@
+﻿<Window x:Class="Lesson11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lesson11"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Path Fill="Red" Stroke="Black">
+            <Path.Data>
+                <CombinedGeometry>
+                    <CombinedGeometry.Geometry1>
+                        <GeometryGroup>
+                            <EllipseGeometry Center="200,200" RadiusX="150" RadiusY="150"/>
+                            <EllipseGeometry Center="200,200" RadiusX="125" RadiusY="125"/>
+                        </GeometryGroup>
+                    </CombinedGeometry.Geometry1>
+                    <CombinedGeometry.Geometry2>
+                        <RectangleGeometry Rect="270,-130,30,255">
+                            <RectangleGeometry.Transform>
+                                <RotateTransform Angle="45"/>
+                            </RectangleGeometry.Transform>
+                        </RectangleGeometry>
+                    </CombinedGeometry.Geometry2>
+                </CombinedGeometry>
+            </Path.Data>
+        </Path>
+    </Grid>
+</Window>
