@@ -1,0 +1,65 @@
+﻿<Window x:Class="Lesson12.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lesson12"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                     <ControlTemplate TargetType="CheckBox">
+                        <StackPanel>
+                            <Grid>
+                                <Rectangle Width="20" Height="20"
+                                           Stroke="Black" 
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                                           RadiusX="2" RadiusY="2"
+                                           Margin="10"/>
+                                <Path x:Name="Xchecked" Opacity="0" Fill="Gray">
+                                    <Path.Data>
+                                        <GeometryGroup FillRule="Nonzero">
+                                            <RectangleGeometry Rect="17,-1,22,2">
+                                                <RectangleGeometry.Transform>
+                                                    <RotateTransform Angle="45"/>
+                                                </RectangleGeometry.Transform>
+                                            </RectangleGeometry>
+                                            <RectangleGeometry Rect="-11,27,22,2">
+                                                <RectangleGeometry.Transform>
+                                                    <RotateTransform Angle="-45"/>
+                                                </RectangleGeometry.Transform>
+                                            </RectangleGeometry>
+                                        </GeometryGroup>
+                                    </Path.Data>
+                                </Path>
+                                <Ellipse x:Name="circle"
+                                         Width="10" Height="10"
+                                         Fill="Gray"
+                                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                                         Opacity="0"/>
+                            </Grid>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{TemplateBinding Content}"/>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Xchecked" Property="Opacity" Value="1"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="{x:Null}">
+                                <Setter TargetName="circle" Property="Opacity" Value="1"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                     </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <UniformGrid Rows="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <CheckBox Content="1" IsThreeState="True"/>
+            <CheckBox Content="2" IsThreeState="True"/>
+            <CheckBox Content="3" IsThreeState="True"/>
+        </UniformGrid>        
+    </Grid>
+</Window>
