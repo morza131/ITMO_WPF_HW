@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Lesson9
+namespace Lesson13
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -24,8 +24,7 @@ namespace Lesson9
     {
         public MainWindow()
         {
-            InitializeComponent();            
-
+            InitializeComponent();
         }
         #region event handlers
         private void FontBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -120,7 +119,7 @@ namespace Lesson9
                 }
             }
         }
-        private ResourceDictionary GetResourceDictionary(string _uri, UriKind uriKind) 
+        private ResourceDictionary GetResourceDictionary(string _uri, UriKind uriKind)
         {
             Uri uri = new Uri(_uri, uriKind);
             return Application.LoadComponent(uri) as ResourceDictionary;
@@ -136,10 +135,10 @@ namespace Lesson9
         private void BlackButton_Checked(object sender, RoutedEventArgs e)
         {
             if (textBox != null)
-            { 
+            {
                 textBox.Foreground = Brushes.Black;
             }
-            
+
         }
         #endregion
 
@@ -169,29 +168,28 @@ namespace Lesson9
         {
             Application.Current.Shutdown();
         }
-      
+
 
 
         #endregion
 
         private void lightModeButton_Checked(object sender, RoutedEventArgs e)
-        {                        
+        {
             ResourceDictionary resourceStyle = GetResourceDictionary("LightMode.xaml", UriKind.Relative);
             ResourceDictionary resourceFonts = GetResourceDictionary("DictionaryFonts.xaml", UriKind.Relative);
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceStyle);
             Application.Current.Resources.MergedDictionaries.Add(resourceFonts);
-        }      
+        }
         private void darkModeButton_Checked(object sender, RoutedEventArgs e)
         {
-            
-            ResourceDictionary resourceStyle = GetResourceDictionary("DarkMode.xaml", UriKind.Relative); 
+
+            ResourceDictionary resourceStyle = GetResourceDictionary("DarkMode.xaml", UriKind.Relative);
             ResourceDictionary resourceFonts = GetResourceDictionary("DictionaryFonts.xaml", UriKind.Relative);
-            Application.Current.Resources.Clear();           
+            Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceStyle);
             Application.Current.Resources.MergedDictionaries.Add(resourceFonts);
 
         }
     }
 }
-
